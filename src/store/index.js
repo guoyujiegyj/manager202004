@@ -7,12 +7,14 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     // 是否登录标识，
-    isLogin: false
+    // isLogin: false
+    token: ''
   },
   mutations: {
     // 修改是否登录标识
-    changeIsLogin(state, loginFlag) {
-      state.isLogin = loginFlag
+    changeIsLogin(state, token) {
+      // alert("a")
+      state.token = token
     }
   },
   actions: {
@@ -31,7 +33,9 @@ export default new Vuex.Store({
         }
         else {
           //console.log(res)
-          window.sessionStorage.setItem('token', res.data.token)
+          //window.sessionStorage.setItem('token', res.data.token)
+          // 调用mutations的方法
+          commit('changeIsLogin', res.data.token)
           return 1
         }
       })

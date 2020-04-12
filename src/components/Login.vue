@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-import { request } from '../network/request'
+import { request, intercepter } from '../network/request'
 import { mapActions } from 'vuex'
 
 export default {
